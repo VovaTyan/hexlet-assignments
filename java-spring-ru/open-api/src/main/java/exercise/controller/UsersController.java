@@ -100,7 +100,7 @@ public class UsersController {
             // Если не существует, возвращаем код ответа 404
             throw new UserNotFoundException(id);
         }
-        userRepository.deleteById(id);
+        user.setId(id);
         userRepository.save(user);
     }
     // END
