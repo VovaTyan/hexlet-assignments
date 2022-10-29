@@ -3,19 +3,9 @@ package exercise.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.FetchType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Getter
 @Setter
@@ -31,8 +21,8 @@ public class Comment {
     @Lob
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
     // END
 }
